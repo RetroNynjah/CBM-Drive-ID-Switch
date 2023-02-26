@@ -1,5 +1,5 @@
 # CBM Drive ID Switch
-<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="400"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="400"/><br/>
+<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="300"/><br/>
 
 This is a software controlled device ID switch for Commodore disk drives. It can be installed in any Commodore IEC disk drive but it only makes sense to install it in the drives that lack external DIP switches for ID selection but handy for the 1541 drive and for computers with built-in disk drives such as SX-64, C128D and C128DCR. 
 
@@ -11,8 +11,9 @@ Valid device numbers are 8, 9, 10, 11. In the switch command, these are specifie
 
 ## Installation
 
-The installation is quite simple if the VIA chips are socketed. Just remove the VIA chip indicated in the table below, the insert the switch and install the VIA chip in the switch.  
-If the VIA is soldered to the PCB you will need to first desolder the VIA and install a socket (unless you want to solder the switch to the PCB which I wouldn't recommend).
+The installation is quite simple if the VIA chips are socketed. Just remove the correct VIA chip (MOS 6522) indicated in the table below, then install the switch in the socket and install the VIA chip in the switch. There is a notch printed on the top of the switch. This notch should be aligned with the notch on the socket.  
+If the VIA is soldered to the PCB you will need to first desolder the VIA and install a socket (unless you want to solder the switch to the PCB which I wouldn't recommend). If you need to remove the VIA chip from the switch, be careful with the compoments on top of the PCB. Don't use any sharp objects to pry the chip out of the headers.
+
 
 |Model			| VIA			| 
 |:-----------:	|:-----------:	|
@@ -61,8 +62,9 @@ or activate the drive first using CTRL+D or using @8 and use this command:
 | 1 |D1			|LED 0805					|Optional							|
 | 1 |R2			|560Ω 0805					|Optional							|
 
-You can use any larger pin-compatible ATmega MCU such as ATmega88 or ATmega328. All variants seem to work including the not 100% pin-compatible PB version. 
-The test points TP1 and TP2 are connected to ATmega pins PC1 and PC2 (Arduino A1 and A2) and can possibly be used for debugging or for some external connections. 
+You can use any larger pin-compatible ATmega MCU such as ATmega88 or ATmega328.  
+All variants seem to work including the not 100% pin-compatible PB version.  
+The test points TP1 and TP2 are connected to ATmega pins PC1 and PC2 (Arduino pins A1 and A2) and can possibly be used for debugging or for some external connections.  
 The optional LED (D1) and its resistor can also be used for debugging purposes but are difficult to see when VIA is installed so the may as well be left out. 
 
 <img src="images/rev1/build.jpg" alt="Completed switch" width="600"/>
