@@ -20,9 +20,8 @@ If the VIA is soldered to the PCB you will need to first desolder the VIA and in
 |1541			| UC3 or UAB1	|
 |1571			| U9		  	|
 |128DCR			| U106			|
-|SX-64\*		| UBC3			|
+|SX-64      | UBC3			|
 
-\* Not tested yet
 
 <img src="images/rev1/1541installed.jpg" alt="Switch installed in CBM 1541" width="600"/>
 
