@@ -82,7 +82,7 @@ Round machined headers add a few millimeters to the height but is fine in C128DC
 
 ## Parallel version
 I also made a version with a header for a parallel cable since parallel connections can be made using the same VIA.  
-<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="300"/>  
+<img src="images/rev1/par_pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/par_pcb_bottom.png" alt="PCB rendering" width="300"/>  
 
 It can be used with SpeedDos ROM+Kernal and a userport adapter such as the one designed by Sven Petersen:  
 https://github.com/svenpetersen1965/1541-parallel-adapter-SpeedDOS
