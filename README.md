@@ -1,5 +1,5 @@
 # CBM Drive ID Switch
-<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="300"/><br/>
+<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="300"/>  
 
 This is a software controlled device ID switch for Commodore disk drives. It can be installed in any Commodore IEC disk drive but it only makes sense to install it in the drives that lack external DIP switches for ID selection but handy for the 1541 drive and for computers with built-in disk drives such as SX-64, C128D and C128DCR. 
 
@@ -18,17 +18,18 @@ If the VIA is soldered to the PCB you will need to first desolder the VIA and in
 |Model			| VIA			| 
 |:-----------:	|:-----------:	|
 |1541			| UC3 or UAB1	|
-|1571			| U9		  	|
+|1571 (in 128D) | U9		  	|
 |128DCR			| U106			|
-|SX-64      | UBC3			|
+|SX-64			| UBC3			|
 
 
-<img src="images/rev1/1541installed.jpg" alt="Switch installed in CBM 1541" width="600"/>
+<img src="images/rev1/1541installed.jpg" alt="Switch installed in a CBM 1541" width="600"/>
+<img src="images/rev1/sx64installed.jpg" alt="Switch installed in an SX-64" width="600"/>
 
 ## Usage
 
 The device ID can be switched from basic using regular CBM DOS commands or by using DOS wedge commands from JiffyDOS or similar. 
-Once the ID has been switched, the drive will keep the new ID for subsequent startups until the ID is changed again. Resetting or power cycling the drive doesn't affect the ID.
+Once the ID has been switched, the ID is saved and the drive will startup with the new ID until the ID is changed again. Resetting or power cycling the drive doesn't affect the saved ID.
 
 In the below examples we switch ID of device #8 to device #9. 
 
@@ -66,4 +67,41 @@ All variants seem to work including the not 100% pin-compatible PB version.
 The test points TP1 and TP2 are connected to ATmega pins PC1 and PC2 (Arduino pins A1 and A2) and can possibly be used for debugging or for some external connections.  
 The optional LED (D1) and its resistor can also be used for debugging purposes but are difficult to see when VIA is installed so the may as well be left out. 
 
+Installaion in the plastic version of C128D with the 1571 controller board covered by an RF shield requires a low profile switch. Flat stackable headers (Arduino shield headers) soldered from the top side is recommended in this case.  
+<img src="images/stackableheader.png" alt="Stackable type header" width="400"/>  
+Place a socket under the PCB and insert the stackable header pins through the PCB and solder them in place from the top side. The PCB can be removed from socket after soldering a pin on each end. The angle of the pins can then be adjusted before soldering the rest of the pins.
+<img src="stackableheader2.png" alt="Stackable header inserted for soldering" width="600"/>  
+When done, cut off the header part so that only the bottom part of the pins are left.  
+I haven't found any 20-pin stackable headers but two 10-pin headers on each side works fine.  
+
+Round machined headers add a few millimeters to the height but is fine in C128DCR, SX-64 and 1541 which all have more headroom.  
+
+
 <img src="images/rev1/build.jpg" alt="Completed switch" width="600"/>
+
+
+## Parallel version
+I also made a version with a header for a parallel cable since parallel connections can be made using the same VIA.  
+<img src="images/rev1/pcb_top.png" alt="PCB rendering" width="300"/> <img src="images/rev1/pcb_bottom.png" alt="PCB rendering" width="300"/>  
+
+It can be used with SpeedDos ROM+Kernal and a userport adapter such as the one designed by Sven Petersen:  
+https://github.com/svenpetersen1965/1541-parallel-adapter-SpeedDOS
+The header on the Drive ID Switch has the same pinout as the one on Sven Petersen's 1541 adapter.  
+With the proper cable, the parallel interface can also be used for nibble transfers with a Zoomfloppy or similar interface.  
+
+<img src="images/rev1/1541parinstalled.jpg" alt="Switch installed in an SX-64" width="600"/>  
+
+The pin-out of the parallel connector is connected to VIA pins according to the below table.
+
+|Header pin |VIA pin    |
+|-----------|-----------|
+|1          |CA2 (39)   |
+|2          |PA0 (2)    |
+|3          |PA1 (3)    |
+|4          |PA2 (4)    |
+|5          |PA3 (5)    |
+|6          |PA4 (6)    |
+|7          |PA5 (7)    |
+|8          |PA6 (8)    |
+|9          |PA7 (9)    |
+|10         |CB1 (18)   |

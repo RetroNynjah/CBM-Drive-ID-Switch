@@ -4,7 +4,7 @@
 #  ID switch sketch for CBM disk drives                                                 #
 #  To be used with the Retroninja CBM Drive ID Switch in all CBM IEC drives             #
 #                                                                                       #
-#  Version 1.0                                                                          #
+#  Version 1.1                                                                          #
 #  https://github.com/retronynjah                                                       #
 #                                                                                       #
 #########################################################################################
@@ -68,15 +68,6 @@ void resetdrive(){
 
 
 void switchid(byte deviceid){
-  /*
-  for (int x = 0; x <= deviceid; x++){
-    digitalWrite (LEDPIN, HIGH);
-    delay(30);
-    digitalWrite (LEDPIN, LOW);
-    delay(250);
-  }
-  delay (200);
-  */  
   switch (deviceid){
     case 8:
       // device 8
@@ -106,7 +97,17 @@ void switchid(byte deviceid){
   if (savedid != deviceid){
     EEPROM.write(0, deviceid);
   }
+  delay(50);
   resetdrive();
+  /*
+  for (int x = 0; x <= deviceid; x++){
+    digitalWrite (LEDPIN, HIGH);
+    delay(30);
+    digitalWrite (LEDPIN, LOW);
+    delay(250);
+  }
+  delay (200);
+  */  
 }
 
 
