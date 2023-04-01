@@ -68,9 +68,9 @@ The test points TP1 and TP2 are connected to ATmega pins PC1 and PC2 (Arduino pi
 The optional LED (D1) and its resistor can also be used for debugging purposes but are difficult to see when VIA is installed so the may as well be left out. 
 
 Installaion in the plastic version of C128D with the 1571 controller board covered by an RF shield requires a low profile switch. Flat stackable headers (Arduino shield headers) soldered from the top side is recommended in this case.  
-<img src="images/stackableheader.png" alt="Stackable type header" width="400"/>  
+<img src="images/stackableheader.jpg" alt="Stackable type header" width="400"/>  
 Place a socket under the PCB and insert the stackable header pins through the PCB and solder them in place from the top side. The PCB can be removed from socket after soldering a pin on each end. The angle of the pins can then be adjusted before soldering the rest of the pins.
-<img src="stackableheader2.png" alt="Stackable header inserted for soldering" width="600"/>  
+<img src="images/stackableheader2.jpg" alt="Stackable header inserted for soldering" width="600"/>  
 When done, cut off the header part so that only the bottom part of the pins are left.  
 I haven't found any 20-pin stackable headers but two 10-pin headers on each side works fine.  
 
